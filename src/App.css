@@ -12,6 +12,10 @@
   font-size: 12rem;
 }
 
+.right {
+  padding: 50px;
+}
+
 .location {
   padding-left: 220px;
 }
@@ -23,4 +27,11 @@
 .hourlyDiv {
   background-color: rgba(255, 255, 255, 0.105);
   backdrop-filter: blur(10px);
+}
+
+.stats {
+  background-color: rgba(255, 255, 255, 0.105);
+  backdrop-filter: blur(10px);
+  margin-right: 20px;
+  padding: 8px;
 }
