@@ -33,5 +33,10 @@
   background-color: rgba(255, 255, 255, 0.105);
   backdrop-filter: blur(10px);
   margin-right: 20px;
-  padding: 8px;
+}
+
+.eachDailyData {
+  background-color: rgba(255, 255, 255, 0.105);
+  backdrop-filter: blur(10px);
+  padding: 2px;
 }
