@@ -1,0 +1,26 @@
+.weatherMain {
+  background-image: url(../public/pexels-matreding-4394197.jpg);  
+  background-size: cover;
+}
+
+.leftRight {
+  background-image: url(../public/pexels-cmonphotography-1809644.jpg);
+  background-size: cover;
+}
+
+.temp {
+  font-size: 12rem;
+}
+
+.location {
+  padding-left: 220px;
+}
+
+.location h1 {
+  font-size: 4rem;
+}
+
+.hourlyDiv {
+  background-color: rgba(255, 255, 255, 0.105);
+  backdrop-filter: blur(10px);
+}
