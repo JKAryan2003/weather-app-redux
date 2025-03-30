@@ -5,10 +5,10 @@ const Left = () => {
   return (
     <div className='w-75'>
       <div className='d-flex justify-content-between px-5 py-4'>
-        <h1 className='text-secondary'>
+        <h1 className='text-light'>
           My Weather
         </h1>
-        <h1>
+        <h1 className='text-secondary'>
           March 30 09:20
         </h1>
       </div>
@@ -16,12 +16,13 @@ const Left = () => {
 
       <div className='d-flex justify-content-center'>
         <div className='pe-5'>
-          <h1 className='temp'>08 &deg;C</h1>
+          <h1 className='temp text-light'>32 &deg;C</h1>
         </div> 
 
         <div className='ps-5'>
           <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" height={120}/>
           <h2 className='weatherDescription ps-4'>Rainy</h2>
+          <h5>Feels like 45 &deg; C</h5>
         </div>
       </div>
 
@@ -29,7 +30,7 @@ const Left = () => {
           <h1 className='text-white'>Bhubaneswar</h1>
       </div> 
 
-      <h3 className='text-white ps-5'>Hourly Forecast</h3>
+      <h3 className='text-secondary ps-5'>Hourly Forecast</h3>
 
       <div className='d-flex text-white justify-content-around py-4'>
         <div className='d-flex flex-column align-items-center rounded-3 hourlyDiv'>
