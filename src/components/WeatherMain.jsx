@@ -2,28 +2,26 @@ import React, { useState } from 'react'
 import Left from './Left'
 import Right from './Right'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchCities } from '../features/weather/weatherSlice'
+import { fetchCities, fetchWeather } from '../features/weather/weatherSlice'
 import { useEffect } from 'react'
 
 const WeatherMain = () => {
   const cities = useSelector((state) => state.weather.cities)
+  const weatherData = useSelector((state) => state.weather.weatherData)
   const dispatch = useDispatch()
 
   const [city, setCity] = useState()
-  console.log(city);
 
   const handleClick = (city) => {
-    dispatch(setCoordinates({
-      lat: city.lat,
-      lon: city.lon
-    }))
+   dispatch(fetchWeather(city))
   }
-  
+
   useEffect(() => {
     dispatch(fetchCities(city))
   }, [city])
-  
-  
+
+  console.log(weatherData);
+    
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 weatherMain'>
       <div className='d-flex w-75 shadow-lg rounded-5 leftRight'>

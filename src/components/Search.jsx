@@ -1,8 +1,6 @@
 import React from 'react'
 
 const Search = ({handleClick, setCity, city, cities}) => {
-  console.log(cities);
-  
   return (
     <div className='d-flex justify-content-center px-5 flex-column'>
       <div class="input-group mb-3">
