@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Right = ({weatherData, dailyData}) => {
+  const day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   return (
     <div className='w-25'>
       <h3 className='pt-4 pb-3 text-secondary'>Today's Data</h3>
@@ -40,9 +41,9 @@ const Right = ({weatherData, dailyData}) => {
 
       <h4 className='pt-4 text-secondary-emphasis'>Daily Forecast</h4>
       <div className="dailyData pe-4 text-light">
-        {dailyData.map((data) => 
-          <div className='py-1'>
-            <h6 className='text-light'>Monday</h6>
+        {dailyData?.map((data) => 
+          <div className='py-2'>
+            <h6 className='text-light'>{day[new Date(data?.dt_txt).getDay()]}</h6>
             <div className='d-flex align-items-center justify-content-around rounded-3 eachDailyData'>
               <span>{data?.main?.temp} &deg; C</span>
               <img src={`https://openweathermap.org/img/wn/${(data?.weather?.[0]?.icon)}@2x.png`} alt="" height={50}/>
