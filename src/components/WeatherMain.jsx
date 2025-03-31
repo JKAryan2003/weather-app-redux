@@ -7,6 +7,10 @@ import { useEffect } from 'react'
 
 const WeatherMain = () => {
   const cities = useSelector((state) => state.weather.cities)
+  const dispatch = useDispatch()
+
+  const [city, setCity] = useState()
+  const [cityName, setCityName] = useState("Bhubaneshwar")
   
   const weatherData = useSelector((state) => state.weather.weatherData)
   const timeData = useSelector((state) => state.weather.timeData.list)
@@ -31,11 +35,6 @@ const WeatherMain = () => {
   const dailyData = getDailyData(timeData)
   console.log(dailyData);
   
-  const dispatch = useDispatch()
-
-  const [city, setCity] = useState()
-  const [cityName, setCityName] = useState("Bhubaneshwar")
-
   const handleClick = (city) => {
    dispatch(fetchWeather(city))
    dispatch(fetchTimeData(city))

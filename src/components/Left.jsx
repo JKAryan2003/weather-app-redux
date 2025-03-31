@@ -8,11 +8,11 @@ const Left = ({ handleClick, city, setCity, cities, weatherData, cityName, hourD
     <div className='w-75'>
       <div className='d-flex justify-content-between px-5 py-4'>
         <h1 className='text-light'>
-          My Weather
+          Weather Kit
         </h1>
-        <h1 className='text-secondary'>
-          March 30 09:20
-        </h1>
+        <h2 className='text-secondary'>
+         {new Date().toDateString("en-US")} {new Date().toLocaleTimeString()}
+        </h2>
       </div>
       <Search handleClick={handleClick} city={city} setCity={setCity} cities={cities}/>
 
