@@ -21,6 +21,11 @@ export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (city
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
+  reducers: {
+    resetData: (state) => {
+      state.cities = []
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCities.fulfilled, (state, action) => {
       state.cities = action.payload
@@ -32,3 +37,4 @@ const weatherSlice = createSlice({
 })
 
 export default weatherSlice.reducer
+export const {resetData} = weatherSlice.actions
