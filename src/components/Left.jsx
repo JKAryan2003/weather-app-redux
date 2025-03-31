@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from './Search'
 
-const Left = () => {
+const Left = ({ handleInput, city, setCity, places }) => {
   return (
     <div className='w-75'>
       <div className='d-flex justify-content-between px-5 py-4'>
@@ -12,7 +12,7 @@ const Left = () => {
           March 30 09:20
         </h1>
       </div>
-      <Search />
+      <Search handleInput={handleInput} city={city} setCity={setCity} places={places}/>
 
       <div className='d-flex justify-content-center'>
         <div className='pe-5'>
