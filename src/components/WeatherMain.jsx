@@ -12,14 +12,13 @@ const WeatherMain = () => {
   const dispatch = useDispatch()
 
   const [city, setCity] = useState()
-  console.log(city);
-  console.log(cities);
-  
+  const [cityName, setCityName] = useState("Bhubaneshwar")
 
   const handleClick = (city) => {
    dispatch(fetchWeather(city))
    dispatch(resetData())
    setCity("")
+   setCityName(city.name)
   }
 
   useEffect(() => {
@@ -31,8 +30,8 @@ const WeatherMain = () => {
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 weatherMain'>
       <div className='d-flex w-75 shadow-lg rounded-5 leftRight'>
-        <Left handleClick={handleClick} city={city} setCity={setCity} cities={cities}/>
-        <Right />
+        <Left handleClick={handleClick} city={city} setCity={setCity} cities={cities} weatherData={weatherData} cityName={cityName}/>
+        <Right weatherData={weatherData}/>
       </div>
     </div>
   )
