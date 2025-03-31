@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import Left from './Left'
 import Right from './Right'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchCities, fetchWeather, resetData } from '../features/weather/weatherSlice'
+import { fetchCities, fetchTimeData, fetchWeather, resetData } from '../features/weather/weatherSlice'
 import { useEffect } from 'react'
 
 const WeatherMain = () => {
   const cities = useSelector((state) => state.weather.cities)
   
   const weatherData = useSelector((state) => state.weather.weatherData)
+  const hourData = useSelector((state) => state.weather.timeData)
+  console.log(hourData);
+  
   const dispatch = useDispatch()
 
   const [city, setCity] = useState()
@@ -16,6 +19,7 @@ const WeatherMain = () => {
 
   const handleClick = (city) => {
    dispatch(fetchWeather(city))
+   dispatch(fetchTimeData(city))
    dispatch(resetData())
    setCity("")
    setCityName(city.name)
@@ -25,6 +29,7 @@ const WeatherMain = () => {
     dispatch(fetchCities(city))
   }, [city])
 
+  
   console.log(weatherData);
     
   return (

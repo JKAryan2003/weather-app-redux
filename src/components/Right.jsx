@@ -28,12 +28,12 @@ const Right = ({weatherData}) => {
         </div>
         <div className='d-flex justify-content-between fs-5 py-2'>
             <span>Sunrise &nbsp;</span>
-            <span>{new Date(weatherData?.sys?.sunrise).toLocaleTimeString("en-US")}</span>
+            <span>{new Date((weatherData?.sys?.sunrise)*1000).toLocaleTimeString("en-US")}</span>
         </div>
 
         <div className='d-flex justify-content-between fs-5 py-2'>
             <span>Sunset &nbsp;</span>
-            <span>{new Date(weatherData?.sys?.sunset).toLocaleTimeString("en-US")}</span>
+            <span>{new Date((weatherData?.sys?.sunset)*1000).toLocaleTimeString("en-US")}</span>
         </div>
 
       </div>
