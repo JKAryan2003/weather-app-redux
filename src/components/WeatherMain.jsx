@@ -9,9 +9,22 @@ const WeatherMain = () => {
   const cities = useSelector((state) => state.weather.cities)
   
   const weatherData = useSelector((state) => state.weather.weatherData)
-  const hourData = useSelector((state) => state.weather.timeData)
+  const timeData = useSelector((state) => state.weather.timeData.list)
+  console.log(timeData);
+  
+  const getHourData = (timeData) => {
+    console.log(timeData);
+    
+    const filterData = timeData.filter((item) => 
+      (new Date(item.dt_txt) > new Date()) && (new Date(item.dt_txt).getDate() === new Date().getDate())
+    )  
+    return filterData
+  }
+
+  const hourData = getHourData(timeData)
   console.log(hourData);
   
+
   const dispatch = useDispatch()
 
   const [city, setCity] = useState()
