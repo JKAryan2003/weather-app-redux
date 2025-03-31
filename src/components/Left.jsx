@@ -1,7 +1,9 @@
 import React from 'react'
 import Search from './Search'
 
-const Left = ({ handleClick, city, setCity, cities, weatherData, cityName }) => {
+const Left = ({ handleClick, city, setCity, cities, weatherData, cityName, hourData }) => {
+  console.log(hourData);
+  
   return (
     <div className='w-75'>
       <div className='d-flex justify-content-between px-5 py-4'>
@@ -33,30 +35,14 @@ const Left = ({ handleClick, city, setCity, cities, weatherData, cityName }) => 
       <h3 className='text-secondary ps-5'>Hourly Forecast</h3>
 
       <div className='d-flex text-white justify-content-around py-4'>
-        <div className='d-flex flex-column align-items-center rounded-3 hourlyDiv'>
-          <p>12 : 00 AM</p>
-          <p>08 &deg;C</p>
-          {/* <img src={`https://openweathermap.org/img/wn/${(weatherData?.weather[0].icon)}@2x.png`} alt="" /> */}
-          <p>Rainy</p>
-        </div>
-        <div className='d-flex flex-column align-items-center rounded-3 hourlyDiv'>
-          <p>12 : 00 AM</p>
-          <p>08 &deg;C</p>
-          <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" />
-          <p>Rainy</p>
-        </div>
-        <div className='d-flex flex-column align-items-center rounded-3 hourlyDiv'>
-          <p>12 : 00 AM</p>
-          <p>08 &deg;C</p>
-          <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" />
-          <p>Rainy</p>
-        </div>
-        <div className='d-flex flex-column align-items-center rounded-3 hourlyDiv'>
-          <p>12 : 00 AM</p>
-          <p>08 &deg;C</p>
-          <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" />
-          <p>Rainy</p>
-        </div>
+        {hourData?.map((data) => 
+          <div className='d-flex flex-column align-items-center rounded-3 hourlyDiv'>
+            <p>{new Date(data?.dt_txt).toLocaleTimeString("en-US")}</p>
+            <p>{data?.main?.temp} &deg;C</p>
+            <img src={`https://openweathermap.org/img/wn/${(data?.weather?.[0]?.icon)}@2x.png`} alt="" />
+            <p>{data?.weather?.[0]?.description}</p>
+          </div>
+        )}
       </div>
     </div>
   )

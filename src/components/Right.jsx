@@ -1,6 +1,7 @@
 import React from 'react'
 
-const Right = ({weatherData}) => {
+const Right = ({weatherData, dailyData}) => {
+  const day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   return (
     <div className='w-25'>
       <h3 className='pt-4 pb-3 text-secondary'>Today's Data</h3>
@@ -28,59 +29,29 @@ const Right = ({weatherData}) => {
         </div>
         <div className='d-flex justify-content-between fs-5 py-2'>
             <span>Sunrise &nbsp;</span>
-            <span>{new Date(weatherData?.sys?.sunrise).toLocaleTimeString("en-US")}</span>
+            <span>{new Date((weatherData?.sys?.sunrise)*1000).toLocaleTimeString("en-US")}</span>
         </div>
 
         <div className='d-flex justify-content-between fs-5 py-2'>
             <span>Sunset &nbsp;</span>
-            <span>{new Date(weatherData?.sys?.sunset).toLocaleTimeString("en-US")}</span>
+            <span>{new Date((weatherData?.sys?.sunset)*1000).toLocaleTimeString("en-US")}</span>
         </div>
 
       </div>
 
       <h4 className='pt-4 text-secondary-emphasis'>Daily Forecast</h4>
       <div className="dailyData pe-4 text-light">
-        <div className='py-1'>
-          <h6 className='text-light'>Monday</h6>
-          <div className='d-flex align-items-center justify-content-around rounded-3 eachDailyData'>
-            <span>30 &deg; C</span>
-            <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" height={50}/>
-            <span>Cloudy</span>
+        {dailyData?.map((data) => 
+          <div className='py-2'>
+            <h6 className='text-light'>{day[new Date(data?.dt_txt).getDay()]}</h6>
+            <div className='d-flex align-items-center justify-content-around rounded-3 eachDailyData'>
+              <span>{data?.main?.temp} &deg; C</span>
+              <img src={`https://openweathermap.org/img/wn/${(data?.weather?.[0]?.icon)}@2x.png`} alt="" height={50}/>
+              <span>{data?.weather?.[0]?.description}</span>
+            </div>
           </div>
-        </div>
-        <div className='py-1'>
-          <h6 className='text-light'>Monday</h6>
-          <div className='d-flex align-items-center justify-content-around rounded-3 eachDailyData'>
-            <span>30 &deg; C</span>
-            <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" height={50}/>
-            <span>Cloudy</span>
-          </div>
-        </div>
-        <div className='py-1'>
-          <h6 className='text-light'>Monday</h6>
-          <div className='d-flex align-items-center justify-content-around rounded-3 eachDailyData'>
-            <span>30 &deg; C</span>
-            <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" height={50}/>
-            <span>Cloudy</span>
-          </div>
-        </div>
-        <div className='py-1'>
-          <h6 className='text-light'>Monday</h6>
-          <div className='d-flex align-items-center justify-content-around rounded-3 eachDailyData'>
-            <span>30 &deg; C</span>
-            <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" height={50}/>
-            <span>Cloudy</span>
-          </div>
-        </div>
-        <div className='py-1'>
-          <h6 className='text-light'>Monday</h6>
-          <div className='d-flex align-items-center justify-content-around rounded-3 text-light eachDailyData'>
-            <span>30 &deg; C</span>
-            <img src="https://openweathermap.org/img/wn/09d@2x.png" alt="" height={50}/>
-            <span>Cloudy</span>
-          </div>
-        </div>
-
+        )}
+        
       </div>
     </div>
   )
