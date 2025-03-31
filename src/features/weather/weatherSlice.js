@@ -24,6 +24,12 @@ export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (init
 const weatherSlice = createSlice({
   name: 'weather',
   initialState,
+  reducers: {
+    setCoordinates: (state, action) => {
+      state.coordinates.lat = action.payload.lat
+      state.coordinates.lon = action.payload.lon
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchCities.pending, (state, action) => {
       state.loading = true

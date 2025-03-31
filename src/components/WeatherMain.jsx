@@ -12,9 +12,13 @@ const WeatherMain = () => {
   const [city, setCity] = useState()
   console.log(city);
 
-  const handleClick = () => {
-
+  const handleClick = (city) => {
+    dispatch(setCoordinates({
+      lat: city.lat,
+      lon: city.lon
+    }))
   }
+  
   useEffect(() => {
     dispatch(fetchCities(city))
   }, [city])
