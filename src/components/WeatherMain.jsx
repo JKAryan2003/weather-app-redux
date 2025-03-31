@@ -58,7 +58,7 @@ const WeatherMain = () => {
     <div className='d-flex justify-content-center align-items-center vh-100 weatherMain'>
       <div className='d-flex w-75 shadow-lg rounded-5 leftRight'>
         <Left handleClick={handleClick} city={city} setCity={setCity} cities={cities} weatherData={weatherData} cityName={cityName} hourData={hourData}/>
-        <Right weatherData={weatherData}/>
+        <Right weatherData={weatherData} dailyData={dailyData}/>
       </div>
     </div>
   )
