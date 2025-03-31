@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Left from './Left'
 import Right from './Right'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchCities } from '../features/weather/searchSlice'
+import { fetchCities } from '../features/weather/weatherSlice'
 import { useEffect } from 'react'
 
 const WeatherMain = () => {
-  const cities = useSelector((state) => state.search.cities)
+  const cities = useSelector((state) => state.weather.cities)
   const dispatch = useDispatch()
 
   const [city, setCity] = useState()
