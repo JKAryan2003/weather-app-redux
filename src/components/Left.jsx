@@ -37,7 +37,7 @@ const Left = ({ handleClick, city, setCity, cities, weatherData, cityName, hourD
       <div className='d-flex text-white justify-content-around py-4'>
         {hourData?.map((data) => 
           <div className='d-flex flex-column align-items-center rounded-3 hourlyDiv'>
-            <p>{new Date(data?.dt_txt).toLocaleTimeString()}</p>
+            <p>{new Date(data?.dt_txt).toLocaleTimeString("en-US")}</p>
             <p>{data?.main?.temp} &deg;C</p>
             <img src={`https://openweathermap.org/img/wn/${(data?.weather?.[0]?.icon)}@2x.png`} alt="" />
             <p>{data?.weather?.[0]?.description}</p>

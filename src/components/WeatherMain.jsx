@@ -19,9 +19,18 @@ const WeatherMain = () => {
   }
 
   const hourData = getHourData(timeData)
-  console.log(hourData);
+  console.log(timeData);
   
+  const getDailyData = (timeData) => {
+    const filterData = timeData?.filter((item) => 
+      ((new Date(item.dt_txt) >= new Date()) && (new Date(item.dt_txt).getHours() === 12) )
+    )
+    return filterData
+  }
 
+  const dailyData = getDailyData(timeData)
+  console.log(dailyData);
+  
   const dispatch = useDispatch()
 
   const [city, setCity] = useState()
