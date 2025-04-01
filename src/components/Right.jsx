@@ -4,7 +4,7 @@ const Right = ({weatherData, dailyData}) => {
   const day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   return (
     <div className='w-25'>
-      <h3 className='pt-4 pb-3 text-secondary'>Today's Data</h3>
+      <h3 className='pt-4 pb-3 text-secondary'>Current Data</h3>
       <div className='d-flex flex-column stats px-4 py-2 rounded-4'>
         <div className='d-flex justify-content-between fs-4 py-2'>
           <div className='d-flex justify-content-around'>
