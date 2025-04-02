@@ -9,18 +9,22 @@ const initialState = {
   error: ""
 }
 
+const appid = import.meta.env.VITE_API_KEY
+console.log(appid);
+
+
 export const fetchCities = createAsyncThunk('weather/fetchCities', async (city) => {
-  const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=753f10661e26a53cb54ef6fd4a1bd6f0&units=metric`)
+  const response = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${appid}&units=metric`)
   return response.data;
 })
 
 export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (city) => {
-  const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=753f10661e26a53cb54ef6fd4a1bd6f0&units=metric`)
+  const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=${appid}&units=metric`)
   return response.data
 })
 
 export const fetchTimeData = createAsyncThunk('weather/fetchTimeData', async (city) => {
-  const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=753f10661e26a53cb54ef6fd4a1bd6f0&units=metric`)
+  const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=${appid}&units=metric`)
   return response.data
 })
 
